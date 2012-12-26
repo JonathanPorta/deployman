@@ -38,7 +38,8 @@
   },
   "devDependencies": {
     "grunt-contrib": "*",
-    "grunt-livescript": "*"
+    "grunt-livescript": "*",
+    "grunt-testacular": "*"
   },
   "keywords": []
 }

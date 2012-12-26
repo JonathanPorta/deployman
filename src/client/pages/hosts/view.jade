@@ -1,0 +1,17 @@
+#hosts
+	header.title
+		h2 Hosts
+
+	.container(ng:controller="Host")
+		table.hostTable
+			tr
+				th Hostname
+				th IP
+				th MAC
+			tr(ng:repeat="host in hosts")
+				td
+					inline(entity="host", property="hostname")
+				td
+					inline(entity="host", property="ip")
+				td
+					inline(entity="host", property="mac")

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 				files: {
 					'src/client/components.html': ['src/client/components/**/*jade'],
 					'src/client/pages.html'     : ['src/client/pages/**/*jade'],
-					'lib/client/index.html'      : ['src/client/index.jade']
+					'lib/client/index.html'     : ['src/client/index.jade']
 				}
 			}
 		},
@@ -37,17 +37,27 @@ module.exports = function(grunt) {
 			},
 			client: {
 				files: {
-					'lib/client/scripts/app.js'        : 'src/client/app.ls',
-					'lib/client/scripts/filters.js'    : 'src/client/filters/*ls',
-					'lib/client/scripts/services.js'   : 'src/client/services/*ls',
-					'lib/client/scripts/directives.js' : 'src/client/directives/*ls',
-					'lib/client/scripts/components.js' : 'src/client/components/**/*ls',
-					'lib/client/scripts/pages.js'      : 'src/client/pages/**/*ls'
+					'lib/client/scripts/app.js'       : 'src/client/app.ls',
+					'lib/client/scripts/filters.js'   : 'src/client/filters/**/script.ls',
+					'lib/client/scripts/services.js'  : 'src/client/services/**/script.ls',
+					'lib/client/scripts/directives.js': 'src/client/directives/**/script.ls',
+					'lib/client/scripts/components.js': 'src/client/components/**/script.ls',
+					'lib/client/scripts/pages.js'     : 'src/client/pages/**/script.ls'
 				},
 				options: {
 					bare: false
 				}
 			},
+			tests: {
+				files: {
+					'lib/tests/tests.js': [
+						'src/client/**/test.ls'
+					],
+					'lib/tests/mocks.js': [
+						'src/test/mocks/*ls'
+					]
+				}
+			}
 		},
 		copy: {
 			vendors: {
@@ -60,6 +70,17 @@ module.exports = function(grunt) {
 					'lib/client/': 'src/client/*json'
 				}
 			}
+		},
+		testacularServer: {
+			unit: {
+				configFile: "src/test/config/unit.js",
+				options: {
+					keepalive: true
+				}
+			}
+		},
+		testacularRun: {
+			unit: {}
 		},
 		watch: {
 			server: {
@@ -81,9 +102,12 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib');
 	grunt.loadNpmTasks('grunt-livescript');
+	grunt.loadNpmTasks('grunt-testacular')
 
 	grunt.registerTask('build-client', 'jade:client clean:html stylus:client livescript:client copy:vendors copy:context');
 	grunt.registerTask('build-server', 'livescript:server');
-	grunt.registerTask('build', 'build-server build-client');
-	grunt.registerTask('default', 'clean build');
+	grunt.registerTask('build-tests', 'livescript:tests');
+	grunt.registerTask('build', 'build-server build-client build-tests');
+	grunt.registerTask('tests', 'testacularServer:unit testacularRun:unit');
+	grunt.registerTask('default', 'clean build tests');
 };

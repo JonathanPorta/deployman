@@ -12,11 +12,6 @@ html(lang="en")
 
 		//- In Dependency order, or close enough.
 		script(src="vendors/jquery/jquery.min.js")
-		//- A tool to pull bits of HTML from #templates.
-		script
-			jQuery.template = function(tplSel){
-				return jQuery("#templates " + tplSel).html()
-			}
 
 		//- script(src="vendors/jquery-mobile/compiled/jquery.mobile.min.js")
 		script(src="vendors/underscore/underscore-min.js")
@@ -59,15 +54,15 @@ html(lang="en")
 
 		//- The bare template markup for angular
 		#templates(style="display:none")
-			//- include pages.html
+			include pages.html
 
 			//- include templates.html
 
 		//- App specific angular scripts. All our app is here.
 		script(src="scripts/app.js")
-		//- script(src="scripts/services.js")
+		script(src="scripts/services.js")
 		//- script(src="scripts/filters.js")
 		//- script(src="scripts/controllers.js")
 		//- script(src="scripts/directives.js")
 		//- script(src="scripts/components.js")
-		//- script(src="scripts/pages.js")
+		script(src="scripts/pages.js")

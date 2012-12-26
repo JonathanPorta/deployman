@@ -17,6 +17,9 @@ server.jefri.runtime.load 'http://localhost:3000/deployman.json'
 server.get '/', !(req, res)->
 	res.sendfile "lib/client/index.html"
 
+server.get '/context.json', !(req, res)->
+	res.sendfile 'lib/client/deployman.json'
+
 # Otherwise, serve requests as static files from lib/client/
 server.use '/', express.static 'lib/client/'
 

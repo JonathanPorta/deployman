@@ -1,0 +1,44 @@
+{
+  "name": "deployman",
+  "title": "Deployman",
+  "description": "Network configuartion and deployment management tools.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/southerd/deployman",
+  "author": {
+    "name": "David Souther",
+    "email": "davidsouther@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/southerd/deployman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/southerd/deployman/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/southerd/deployman/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/deployman",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "start": "node lib/deployman.js"
+  },
+  "dependencies": {
+    "jquery": ">= 1",
+    "superscore": "~0.3.0",
+    "jefri": "~1.0.0",
+    "jefri-server": "~1.0.0",
+    "express": "*"
+  },
+  "devDependencies": {
+    "grunt-contrib": "*",
+    "grunt-livescript": "*"
+  },
+  "keywords": []
+}

@@ -19,6 +19,6 @@ describe "Deployman service", !(a)->
 		cb = jasmine.createSpy!
 		service.loaded :> cb
 		hosts = service.hosts.length
-		service.create!
+		service.create \Host
 		expect service.hosts.length .toBe hosts + 1
 		expect cb .toHaveBeenCalled!

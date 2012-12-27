@@ -1,0 +1,29 @@
+#routers
+	header.title
+		h2 Routers
+
+	.container(ng:controller="Router")
+		table.routerTable
+			tr
+				th Name
+				th Gateway
+				th Subnet Mask
+				th
+			tr(ng:repeat="router in routers")
+				td
+					inline(entity="router", property="name")
+				td
+					inline(entity="router", property="gateway")
+				td
+					inline(entity="router", property="mask")
+				td
+					a.remove(ng:click="router._destroy()")
+						i.icon-minus
+			tr
+				td
+					a.create(ng:click="create()")
+						i.icon-plus
+						| New Router
+				td
+				td
+				td

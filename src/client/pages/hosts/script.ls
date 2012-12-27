@@ -2,7 +2,7 @@ host = !(scope, deployman)->
 	scope <<<
 		hosts: deployman.hosts
 		create: !->
-			deployman.create!
+			deployman.create \Host
 	deployman.loaded :> !->
 		scope.hosts = deployman.hosts
 		unless scope.$$phase then scope.$apply!

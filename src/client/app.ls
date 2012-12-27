@@ -20,6 +20,7 @@ angular.module \deployman, <[ JEFRi jQuery ui ]>, !($routeProvider)->
 	$routeProvider
 		.when '/', template: jQuery.template \#hosts
 		.when '/hosts', template: jQuery.template \#hosts
+		.when '/routers', template: jQuery.template \#routers
 
 # A variety of bootstrap classes for our semantic classes.
 angular.classes do

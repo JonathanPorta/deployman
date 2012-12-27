@@ -5,25 +5,21 @@ deployman = (JEFRi)->
 				@load!
 				@loaded <: {}
 
-		load: !->
-			routers = [
-				<[ static-wireless 216.146.97.254 255.255.255.0 ]>
-				<[ static-ip 216.146.96.1 255.255.255.0 ]>
-			]
+		load: ->
+			getHosts = 
+				JEFRi.get {_type: \Host } .done !(gotten)~>
+					@hosts = gotten.entities
+					_(@hosts).each !~> @_watch it
+			getRouters = 
+				JEFRi.get {_type: \Router } .done !(gotten)~>
+					@routers = gotten.entities
+					_(@routers).each !~> @_watch it
+			_.when(getHosts, getRouters).then !~>
+				@loaded <: {}
 
-			static-wireless = JEFRi.build \Router, {name: routers[0][0], gateway: routers[0][1], mask: routers[0][2]}
-			static-ip = JEFRi.build \Router, {name: routers[1][0], gateway: routers[1][1], mask: routers[1][2]} 
-
-			@routers = [static-wireless, static-ip]
-
-			hosts = [
-				["mud", "216.146.97.60", "18:03:73:af:00:b2", static-wireless],
-				["opal", "216.146.97.50", "fa:54:ef:33:9c:e5", static-wireless],
-				["time", "216.146.96.78", "00:1a:4a:92:61:01", static-ip]
-			]
-			@hosts = for host in hosts
-				h = @_watch JEFRi.build \Host, {hostname: host[0], ip: host[1], mac: host[2]}
-				h.router host[3]
+		save: ->
+			ents = @routers +++ @hosts
+			JEFRi.save ents
 
 		create: !(which)->
 			switch which

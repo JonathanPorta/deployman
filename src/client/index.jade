@@ -52,11 +52,14 @@ html(lang="en")
 			.content
 				ng:view
 
+			.container
+				export
+
 		//- The bare template markup for angular
 		#templates(style="display:none")
 			include pages.html
 
-			//- include templates.html
+			include components.html
 
 		//- App specific angular scripts. All our app is here.
 		script(src="scripts/app.js")
@@ -64,5 +67,5 @@ html(lang="en")
 		//- script(src="scripts/filters.js")
 		//- script(src="scripts/controllers.js")
 		//- script(src="scripts/directives.js")
-		//- script(src="scripts/components.js")
+		script(src="scripts/components.js")
 		script(src="scripts/pages.js")

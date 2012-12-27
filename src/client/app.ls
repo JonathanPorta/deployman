@@ -11,6 +11,12 @@ angular.classmap = !(module, map)-->
 
 angular.classes = angular.classmap \ng
 
+angular.module \ng
+	.run ($rootScope)->
+		$rootScope<<<
+			$sapply: ->
+				unless @$$phase then @$apply!
+
 jQuery.template = (tplSel)->
 	jQuery "\#templates #tplSel" .html!
 

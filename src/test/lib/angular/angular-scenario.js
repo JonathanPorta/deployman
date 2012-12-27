@@ -24270,7 +24270,7 @@ angular.scenario.Application.prototype.navigateTo = function(url, loadFn, errorF
     frame.remove();
     this.context.find('#test-frames').append('<iframe>');
     frame = this.getFrame_();
-    frame.load(function() {
+    frame.load(url, function() {
       frame.unbind();
       try {
         self.executeAction(loadFn);

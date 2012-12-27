@@ -10,3 +10,6 @@ describe "Hosts", !(a)->
 
 	it "Should set an array of hosts on the scope.", !->
 		expect $scope.hosts .toBeDefined!
+
+	it "Should expose a create function", !->
+		expect $scope.create .toBeDefined!

@@ -13,13 +13,12 @@ describe "Deployman service", !(a)->
 				_(@actual).isArray!
 
 	it "Should start with an empty list of hosts.", !->
-		debugger
 		expect service.hosts .toBeArray!
 
-	# it "Should fire a loaded event with new hosts.", !->
-	# 	loaded = false
-	# 	service.loaded :> !(hosts)->
-	# 		expect hosts.length .toBeGreaterThan 0
-	# 		loaded := true
-
-	# 	waitsFor -> loaded
+	it "Should create and fire the loaded event", !->
+		cb = jasmine.createSpy!
+		service.loaded :> cb
+		hosts = service.hosts.length
+		service.create!
+		expect service.hosts.length .toBe hosts + 1
+		expect cb .toHaveBeenCalled!

@@ -8,6 +8,7 @@
 				th Hostname
 				th IP
 				th MAC
+				th
 			tr(ng:repeat="host in hosts")
 				td
 					inline(entity="host", property="hostname")
@@ -15,3 +16,14 @@
 					inline(entity="host", property="ip")
 				td
 					inline(entity="host", property="mac")
+				td
+					a.remove(ng:click="host._destroy()")
+						i.icon-minus
+			tr
+				td
+					a.create(ng:click="create()")
+						i.icon-plus
+						| New Host
+				td
+				td
+				td

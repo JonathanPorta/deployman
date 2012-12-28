@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 		copy: {
 			vendors: {
 				files: {
-					'lib/client/vendors/': 'components/**'
+					'lib/client/vendors/': 'vendors/**'
 				}
 			},
             context: {

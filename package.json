@@ -34,7 +34,8 @@
     "superscore": "~0.3.0",
     "jefri": "~1.0.0",
     "jefri-server": "~1.0.0",
-    "express": "*"
+    "express": "*",
+    "nconf": "*"
   },
   "devDependencies": {
     "grunt": "~0.4.0",

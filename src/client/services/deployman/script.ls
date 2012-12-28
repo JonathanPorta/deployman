@@ -21,6 +21,9 @@ deployman = (JEFRi)->
 			ents = @routers +++ @hosts
 			JEFRi.save ents
 
+		write: ->
+			_.request.post "#{@ENDPOINT}write/"
+
 		create: !(which)->
 			switch which
 			| \Host => @hosts.push @_watch JEFRi.build \Host, {hostname: "New Host", ip: "0.0.0.0", mac: "00:00:00:00:00:00"}

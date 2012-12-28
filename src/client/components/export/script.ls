@@ -12,6 +12,8 @@ controller = !($scope, deployman, jQuery) ->
 			deployman.save!done -> success "Saved!"
 		load: !->
 			deployman.load!done -> success "Loaded!"
+		write: !->
+			deployman.write!done -> success "Wrote config!"
 
 controller.$inject = <[ $scope deployman ]>
 

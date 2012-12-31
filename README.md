@@ -6,11 +6,11 @@ Network configuartion and deployment management tools. Deployman helps network a
 After cloning the repository, install dependencies with `bower install ; npm install`. Make sure [grunt-cli] is installed (`npm i -g grunt-cli`), and run grunt to get a complete build. Start the server with `npm start`. Open a browser to [localhost:3000](http://localhost:3000). 
 
 ### Configuration
-Configuration options are set in `config.json`.
+Configuration options are set in `config.json`. To override defaults, create a file in the root of the project called `config.json` and add a JSON object with the overridden keys and values.
 
 *Options*
-- _port_ network port to listen on.
-- _write_path_ Path to write configuration file.
+- _port_ network port to listen on. Default `3000`
+- _write_path_ Path to write configuration file. Default `./deployman.conf`
 
 ## Examples
 _(Coming soon)_

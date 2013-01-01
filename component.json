@@ -2,7 +2,7 @@
   "name": "deployman",
   "version": "0.1.0",
   "dependencies": {
-    "jquery": "~1.8.0",
+    "jquery": "~1.8.3",
     "bootstrap": "git://github.com/twitter/bootstrap.git#~v2.2",
     "angular": "git://github.com/angular/bower-angular.git#~v1.0.3",
     "angular-ui": "git://github.com/angular-ui/angular-ui.git#~v0.3.2",

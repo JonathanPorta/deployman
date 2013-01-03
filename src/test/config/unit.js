@@ -4,7 +4,7 @@ files = [
 	JASMINE,
 	JASMINE_ADAPTER,
 	'lib/client/vendors/jquery/jquery.min.js',
-	'lib/client/vendors/AngularJS/angular.js',
+	'lib/client/vendors/angular/angular.js',
 	'src/test/lib/angular/angular-mocks.js',
 	'lib/tests/mocks.js',
 	'lib/client/vendors/underscore/underscore-min.js',

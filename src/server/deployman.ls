@@ -36,7 +36,7 @@ server.post '/write', !(req, res)->
 				.send {err: err.toString!}
 
 # The jefri-server runtime doesn't have a default context, load the app's.
-server.jefri.runtime.load 'http://localhost:3000/deployman.json'
+server.jefri.runtime.load "http://localhost:#{nconf.get \port}/deployman.json"
 
 # Use index.html for /
 server.get '/', !(req, res)->

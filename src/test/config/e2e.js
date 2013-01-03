@@ -11,7 +11,7 @@ urlRoot = '/__testacular/';
 autoWatch = false;
 singleRun = true;
 
-browsers = ['Chrome'];
+browsers = ['Chrome', 'Firefox'];
 
 proxies = {
 	'/': 'http://localhost:3000/'
